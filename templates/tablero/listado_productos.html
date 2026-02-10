@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tablero de Productos</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { padding: 8px; border: 1px solid #ccc; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+
+<h1>📊 Tablero de Productos</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Marca</th>
+            <th>Precio original</th>
+            <th>Descuento total (%)</th>
+            <th>Precio final</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.marca.nombre }}</td>
+            <td>${{ producto.precio_origen }}</td>
+            <td>{{ producto.total_descuento_porcentual }}%</td>
+            <td><strong>${{ producto.precio_final|floatformat:2 }}</strong></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
